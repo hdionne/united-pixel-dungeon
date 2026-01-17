@@ -150,7 +150,7 @@ public class SkeletonKey extends Artifact {
 							return;
 						}
 						if (charge < 1){
-							GLog.i( Messages.get(this, "iron_charges") );
+							GLog.i( Messages.get(SkeletonKey.class, "iron_charges") );
 							return;
 						}
 						Sample.INSTANCE.play(Assets.Sounds.UNLOCK);
@@ -205,6 +205,9 @@ public class SkeletonKey extends Artifact {
 								CellEmitter.get( target ).start( Speck.factory( Speck.DISCOVER ), 0.025f, 20 );
 								curUser.spendAndNext(Actor.TICK);
 								curUser.sprite.idle();
+
+								//if there is a distant well landmark above, remove it, as we just opened the door
+								Notes.remove(Notes.Landmark.DISTANT_WELL, Dungeon.depth-1);
 							}
 						});
 						curUser.busy();
@@ -590,6 +593,13 @@ public class SkeletonKey extends Artifact {
 					crystalKeysNeeded[Dungeon.depth]++;
 				}
 			}
+		}
+
+		//used if a level was reset, e.g. via unblessed ankh vs. boss
+		public void clearDepth(){
+			ironKeysNeeded[Dungeon.depth] = -1;
+			goldenKeysNeeded[Dungeon.depth] = -1;
+			crystalKeysNeeded[Dungeon.depth] = -1;
 		}
 
 		public void processIronLockOpened(){
