@@ -1,8 +1,10 @@
-package com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard;
+package com.shatteredpixel.shatteredpixeldungeon.levels.suites.standard;
 
 import com.shatteredpixel.shatteredpixeldungeon.levels.Level;
-import com.shatteredpixel.shatteredpixeldungeon.levels.Terrain;
 import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.Room;
+import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.StandardRoom;
+import com.shatteredpixel.shatteredpixeldungeon.levels.suites.drafter.Drafter;
+import com.shatteredpixel.shatteredpixeldungeon.levels.suites.styler.Styler;
 import com.watabou.utils.Point;
 import com.watabou.utils.Random;
 import com.watabou.utils.Rect;
@@ -33,7 +35,7 @@ public abstract class Suite extends Room {
         public final int minDim, maxDim;
         public final int roomValue;
 
-        SizeCategory(int min, int max, players, int val){
+        SizeCategory(int min, int max, int val){
             minDim = min;
             maxDim = max;
             roomValue = val;
