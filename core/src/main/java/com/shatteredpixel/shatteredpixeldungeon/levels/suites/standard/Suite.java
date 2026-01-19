@@ -4,7 +4,6 @@ import com.shatteredpixel.shatteredpixeldungeon.levels.Level;
 import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.Room;
 import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.StandardRoom;
 import com.shatteredpixel.shatteredpixeldungeon.levels.suites.drafter.Drafter;
-import com.shatteredpixel.shatteredpixeldungeon.levels.suites.styler.Styler;
 import com.watabou.utils.Point;
 import com.watabou.utils.Random;
 import com.watabou.utils.Rect;
@@ -24,7 +23,6 @@ public abstract class Suite extends Room {
     public ArrayList<Room> subrooms;
 
     protected Drafter drafter;
-    protected Styler styler;
 
     public enum SizeCategory {
 
